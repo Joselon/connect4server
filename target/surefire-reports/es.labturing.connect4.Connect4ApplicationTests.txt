@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: es.labturing.connect4.Connect4ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.799 s - in es.labturing.connect4.Connect4ApplicationTests
