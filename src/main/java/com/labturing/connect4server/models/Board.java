@@ -70,7 +70,7 @@ public class Board {
         return false;
     }
 
-    private boolean isConnect4(Line line) {
+    public boolean isConnect4(Line line) { //pasar a private
         for (int i = 0; i < Board.LINE_LENGTH; i++) {
             if (!line.getCoordinate(i).isValid()) {
                 return false;
