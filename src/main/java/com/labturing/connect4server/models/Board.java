@@ -70,7 +70,7 @@ public class Board {
         return false;
     }
 
-    public boolean isConnect4(Line line) { //pasar a private
+    private boolean isConnect4(Line line) {
         for (int i = 0; i < Board.LINE_LENGTH; i++) {
             if (!line.getCoordinate(i).isValid()) {
                 return false;
@@ -109,5 +109,24 @@ public class Board {
 
     public void setLastDrop(Coordinate coordinate) {
         this.lastDrop = coordinate;
+    }
+
+    //tmp xavi
+    public void show(){
+        for (int i = 0; i < colors.length; i++) {
+            for (int j = 0; j < colors[i].length; j++) {
+                System.out.print("( " + i + ", " + j + " )");   
+                if(this.colors[i][j] == Color.RED){
+                    System.out.print("R");
+                }  
+                if(this.colors[i][j] == Color.YELLOW){
+                    System.out.print("Y");
+                } 
+                if(this.colors[i][j] == Color.NULL){
+                    System.out.print("-");
+                } 
+            }
+            System.out.println("");
+        }
     }
 }

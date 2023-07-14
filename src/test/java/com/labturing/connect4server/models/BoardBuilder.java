@@ -9,9 +9,11 @@ import com.labturing.connect4server.types.Color;
 public class BoardBuilder {
 
     private List<String> rows;
+    private Coordinate lastDrop;
 
     public BoardBuilder(){
         this.rows = new ArrayList<>();
+        this.lastDrop = null;
     }
 
     //6 filas x 7 columnas
@@ -24,19 +26,26 @@ public class BoardBuilder {
         return this;
     }
 
+    public BoardBuilder lastDrop(Coordinate lastDrop){
+        this.lastDrop = lastDrop;
+        return this;
+    }
+
     public Board build(){
         Board board = new Board();
         for (int i = 0; i < this.rows.size(); i++) {
             for (int j = 0; j < rows.get(i).length(); j++) {
-                if(rows.get(i).charAt(0) == 'R'){
+                if(rows.get(i).charAt(j) == 'R'){
                     board.setColor(Color.RED, new Coordinate(i, j));
-                } else if(rows.get(i).charAt(0) == 'Y'){
+                } 
+                else if(rows.get(i).charAt(j) == 'Y'){
                     board.setColor(Color.YELLOW, new Coordinate(i, j));
-                } else {
+                } else if (rows.get(i).charAt(j) == ' '){
                     board.setColor(Color.NULL, new Coordinate(i, j));
-                }  
+                }
             }
         }
+        board.setLastDrop(this.lastDrop);
         return board;
     }
     
