@@ -1,4 +1,4 @@
-package usantatecla.tictactoe;
+package usantatecla.tictactoe.connect4server;
 
 import usantatecla.tictactoe.controllers.implementation.LogicImplementation;
 import usantatecla.tictactoe.dispatchers.BoardCompleteDispatcher;

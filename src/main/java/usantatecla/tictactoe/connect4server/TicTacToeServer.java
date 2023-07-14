@@ -1,8 +1,13 @@
-package usantatecla.tictactoe;
+package usantatecla.tictactoe.connect4server;
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
 import usantatecla.tictactoe.dispatchers.DispatcherPrototype;
 
-public class TicTacToeServer {
+@Component
+public class TicTacToeServer implements ApplicationRunner {
 
 	private DispatcherPrototype dispatcherPrototype;
 
@@ -18,7 +23,7 @@ public class TicTacToeServer {
 		this.dispatcherPrototype.serve();
 	}
 
-	public static void main(String[] args) {
+	public void run(ApplicationArguments args) throws Exception {
 		new TicTacToeServer().serve();
 	}
 
