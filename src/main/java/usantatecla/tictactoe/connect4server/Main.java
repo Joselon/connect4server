@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 import usantatecla.tictactoe.dispatchers.DispatcherPrototype;
 
 @Component
-public class TicTacToeServer implements ApplicationRunner {
+public class Main implements ApplicationRunner {
 
 	private DispatcherPrototype dispatcherPrototype;
 
 	private LogicImplementationServer logic;
 
-	private TicTacToeServer() {
+	private Main() {
 		this.dispatcherPrototype = new DispatcherPrototype();
 		this.logic = new LogicImplementationServer();
 		this.logic.createDispatchers(this.dispatcherPrototype);
@@ -24,7 +24,7 @@ public class TicTacToeServer implements ApplicationRunner {
 	}
 
 	public void run(ApplicationArguments args) throws Exception {
-		new TicTacToeServer().serve();
+		new Main().serve();
 	}
 
 }
