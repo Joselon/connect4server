@@ -1,10 +1,13 @@
 package com.labturing.connect4server.models;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.labturing.connect4server.types.Color;
 
 public class BoardTest {
     
@@ -64,7 +67,7 @@ public class BoardTest {
     } 
 
     @Test
-    public void givenIncompleteBoardWhenInMainDiagonalThenIsWinnerReturnsFalse(){
+    public void givenIncompleteBoardWhenInMainDiagonalThenReturnsFalse(){
         Board board = this.boardBuilder.rows(
             "       ",
             "       ",
@@ -80,4 +83,54 @@ public class BoardTest {
         board.show();
         assertFalse(board.isWinner());
     } 
+
+    @Test
+    public void givenCompleteColumnWhenCheckIfIsCompleteColumnThenGetFalse(){
+        Board board = this.boardBuilder.rows(
+            "R      ",
+            "R      ",
+            "R      ",
+            "R      ",
+            "R      ",
+            "R      "
+        )
+        .build();
+        assertTrue(board.isCompleteColumn(0));
+    }
+
+    @Test
+    public void givenColumnWithOneDropWhenDropTokenOnItThenChangeBoardWithNewToken(){ //QUE HACER SI NO SE PUEDE DROPEAR?¿
+        Board board = this.boardBuilder.rows(
+            "       ",
+            "       ",
+            "       ",
+            "       ",
+            "       ",
+            "R      "
+        )
+        .build();
+        BoardBuilder expectBuilder = new BoardBuilder();
+        Board expectedBoard = expectBuilder.rows(
+            "       ",
+            "       ",
+            "       ",
+            "       ",
+            "R      ",
+            "R      "
+        )
+        .build();
+        board.dropTokenXavi(0, Color.RED);
+        board.show();
+        System.out.println("-----------------");
+        System.out.println("-----------------");
+        expectedBoard.show();
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                assertEquals(expectedBoard.colors[i][j], board.colors[i][j]);
+
+            }
+        }
+        //assertEquals(expectedBoard.colors, board.colors);
+
+    }
 }

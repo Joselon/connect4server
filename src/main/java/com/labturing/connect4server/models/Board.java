@@ -29,6 +29,22 @@ public class Board {
         this.colors[this.lastDrop.getRow()][this.lastDrop.getColumn()] = color;
     }
 
+        public void dropTokenXavi(int column, Color color) {
+        this.lastDrop = new Coordinate(0, column);
+        // while (!this.isEmptyPosition(this.lastDrop)) {
+        //     this.lastDrop = this.lastDrop.shifted(Direction.NORTH.getCoordinate());
+        // }
+        // this.colors[this.lastDrop.getRow()][this.lastDrop.getColumn()] = color;
+
+        boolean flag = false;
+        for (int i = this.colors.length - 1; i > 0; i--) {
+            if(this.colors[i][column] == Color.NULL){
+                this.colors[i][column] = color;
+                break;
+            }
+        }
+    }
+
     public boolean isEmptyPosition(Coordinate coordinate) {
         return this.isOccupied(coordinate, Color.NULL);
     }
@@ -111,7 +127,7 @@ public class Board {
         this.lastDrop = coordinate;
     }
 
-    //tmp xavi
+    //tmp xavi for testing purpose
     public void show(){
         for (int i = 0; i < colors.length; i++) {
             for (int j = 0; j < colors[i].length; j++) {
