@@ -1,2 +1,1 @@
-web: java $JAVA_OPTS -jar -Dserver.port=$PORT target/tictactoeserver-1.0-SNAPSHOT.jar
-//java -jar target/connect4server-0.0.1-SNAPSHOT.jar
+release: java -jar target/tictactoeserver-1.0-SNAPSHOT.jar
