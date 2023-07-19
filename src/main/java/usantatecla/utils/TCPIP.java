@@ -36,7 +36,7 @@ public class TCPIP {
 
 	public static TCPIP createClientSocket() {
 		try {
-			Socket socket = new Socket("localhost", 2020);
+			Socket socket = new Socket("https://tictactoe-server-0eeebbb23e54.herokuapp.com", 80); //localhost
 			System.out.println("Cliente> Establecida conexion");
 			return new TCPIP(socket);
 		} catch (Exception e) {
@@ -47,7 +47,7 @@ public class TCPIP {
 
 	public static TCPIP createServerSocket() {
 		try {
-			ServerSocket serverSocket = new ServerSocket(2020);
+			ServerSocket serverSocket = new ServerSocket(80);
 			System.out.println("Servidor> Esperando conexion...");
 			Socket socket = serverSocket.accept();
 			System.out.println("Servidor> Recibida conexion de " + socket.getInetAddress().getHostAddress() + ":"
