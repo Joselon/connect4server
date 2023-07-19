@@ -10,7 +10,7 @@
 
   <name>tictactoeserver</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://tictactoe-server-0eeebbb23e54.herokuapp.com/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
