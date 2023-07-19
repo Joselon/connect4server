@@ -11,7 +11,7 @@ public class TCPIP extends usantatecla.utils.TCPIP {
 
 	public static TCPIP createClientSocket() {
 		try {
-			Socket socket = new Socket("tictactoe-server-0eeebbb23e54.herokuapp.com", 80);
+			Socket socket = new Socket("tictactoe-server-0eeebbb23e54.herokuapp.com", 8080);
 			System.out.println("Cliente> Establecida conexion");
 			return new TCPIP(socket);
 		} catch (Exception e) {
@@ -22,8 +22,8 @@ public class TCPIP extends usantatecla.utils.TCPIP {
 
 	public static TCPIP createServerSocket() {
 		try {
-			ServerSocket serverSocket = new ServerSocket(80);
-			System.out.println("Servidor> Esperando conexion en puerto 80...");
+			ServerSocket serverSocket = new ServerSocket(8080);
+			System.out.println("Servidor> Esperando conexion en puerto 8080...");
 			Socket socket = serverSocket.accept();
 			System.out.println("Servidor> Recibida conexion de " + socket.getInetAddress().getHostAddress() + ":"
 					+ socket.getPort());
